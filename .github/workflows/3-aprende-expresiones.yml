@@ -1,4 +1,4 @@
-name: Step 3, TBD-step-3-name
+name: Paso 3, Aprende a usar Expresiones
 
 # This step triggers after TBD-step-3-event-desc
 # This step sets STEP to 4
@@ -8,8 +8,9 @@ name: Step 3, TBD-step-3-name
 # Reference https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows
 on:
   workflow_dispatch:
-  # Add events that trigger this workflow
-  # TBD-step-3-event:
+  push:
+    branches:
+      - aprendiendo-github-actions
 
 # Reference https://docs.github.com/en/actions/security-guides/automatic-token-authentication
 permissions:
@@ -20,21 +21,21 @@ permissions:
 jobs:
   # Get the current step from .github/script/STEP so we can
   # limit running the main job when the learner is on the same step.
-  get_current_step:
-    name: Check current step number
+  obtener_paso_actual:
+    name: Verificar paso actual
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - id: get_step
+      - id: obtener_paso
         run: |
-          echo "current_step=$(cat ./.github/script/STEP)" >> $GITHUB_OUTPUT
+          echo "paso_actual=$(cat ./.github/script/STEP)" >> $GITHUB_OUTPUT
     outputs:
-      current_step: ${{ steps.get_step.outputs.current_step }}
+      paso_actual: ${{ steps.obtener_paso.outputs.paso_actual }}
 
-  on_TBD-step-3-event:
-    name: On TBD-step-3-event
-    needs: get_current_step
+  aprende_expresiones:
+    name: Aprende a usar Expresiones
+    needs: obtener_paso_actual
 
     # We will only run this action when:
     # 1. This repository isn't the template repository
@@ -43,7 +44,7 @@ jobs:
     # Reference https://docs.github.com/en/actions/learn-github-actions/expressions
     if: >-
       ${{ !github.event.repository.is_template
-          && needs.get_current_step.outputs.current_step == 3 }}
+          && needs.obtener_paso_actual.outputs.paso_actual == 3 }}
 
     # We'll run Ubuntu for performance instead of Mac or Windows
     runs-on: ubuntu-latest
@@ -55,14 +56,19 @@ jobs:
         with:
           fetch-depth: 0 # Let's get all the branches
 
-      # TBD-step-3-additional-steps
+      # Verify the learner added the file contents
+      - name: Verificar contenido del nuevo workflow
+        run: ./.github/script/check-file.sh
+        env:
+          FILE: ".github/workflows/expresiones.yml"
+          SEARCH: "name:"
 
       # Update README to close <details id=3> and open <details id=4>
       # and set STEP to '4'
-      - name: Update to step 4
+      - name: Actualizar a paso 4
         uses: skills/action-update-step@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           from_step: 3
           to_step: 4
-          branch_name: tbd-branch-name
+          branch_name: aprendiendo-github-actions
