@@ -34,7 +34,7 @@ _Aprende los conceptos básicos para crear tu primer flujo de CI/CD para tus pro
 ## ¿Cómo iniciar el curso?
 
 1. Haz click derecho en **Start course** y abre el enlace en una nueva pestaña.
-   <br />[![start-course](https://user-images.githubusercontent.com/1221423/218596841-0645fe1a-4aaf-4f51-9ab3-8aa2d3fdd487.svg)](TBD-generate)
+   <br />[![start-course](https://user-images.githubusercontent.com/1221423/218596841-0645fe1a-4aaf-4f51-9ab3-8aa2d3fdd487.svg)](https://github.com/platzi/curso-github-actions/generate)
 2. En la nueva pestaña, llena los campos para crear un nuevo repositorio.
    - En owner, elige tu cuenta personal o la de tu organización.
    - Es recomendado dejar el repositorio como público ya que los privados consumen [minutos que pueden ser cobrados](https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions).
