@@ -29,7 +29,7 @@ _Aprende los conceptos básicos para crear tu primer flujo de CI/CD para tus pro
 - **¿Qué aprenderás?**: Aprenderás a automatizar los procesos de compilación, pruebas y despliegue de sus proyectos.
 - **¿Qué construirás?**: Una serie de flujos de trabajo que usen los principales conceptos detrás de GitHub Actions (Jobs, Steps, Actions, Variables, Expresiones, entre otros).
 - **Prerequisitos**: Conocimientos básicos sobre Git y GitHub (realizar commits y push; crear pull requests e issues; agregar etiquetas).
-- **Duración**: Este curso tendrá X pasos y lo podrás terminar en Y horas.
+- **Duración**: Este curso tendrá 5 pasos y lo podrás terminar en menos de 2 horas.
 
 ## ¿Cómo iniciar el curso?
 
@@ -161,6 +161,7 @@ Ahora que conoces los componentes básicos de un workflow en GitHub Actions pode
   Agregue el siguiente contenido al archivo `triggers.yml`:
   ```yaml
   name: Triggers
+  run-name: ¡Estoy aprendiendo a usar diferentes Triggers!
   on:
     push:
       branches:
@@ -251,6 +252,7 @@ Puedes combinar valores literales, referencias de contexto y funciones usando op
   Agregue el siguiente contenido al archivo `expresiones.yml`:
   ```yaml
   name: Expresiones
+  run-name: ¡Estoy aprendiendo a usar Expresiones!
   on:
     workflow_dispatch:
       inputs:
@@ -322,6 +324,7 @@ Los más usados son:
   Agregue el siguiente contenido al archivo `contextos.yml`:
   ```yaml
   name: Contexto
+  run-name: ¡Estoy aprendiendo a usar Contextos!
   on: push
   jobs:
     check-main:
@@ -364,6 +367,7 @@ El uso de variables de entorno es lo único que te falta por aprender de los pri
   Agregue el siguiente contenido al archivo `variables.yml`:
   ```yaml
   name: Saludo usando variables
+  run-name: ¡Estoy aprendiendo a usar Variables!
   on:
     workflow_dispatch
   env:
