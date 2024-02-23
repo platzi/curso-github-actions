@@ -29,12 +29,12 @@ _Aprende los conceptos básicos para crear tu primer flujo de CI/CD para tus pro
 - **¿Qué aprenderás?**: Aprenderás a automatizar los procesos de compilación, pruebas y despliegue de sus proyectos.
 - **¿Qué construirás?**: Una serie de flujos de trabajo que usen los principales conceptos detrás de GitHub Actions (Jobs, Steps, Actions, Variables, Expresiones, entre otros).
 - **Prerequisitos**: Conocimientos básicos sobre Git y GitHub (realizar commits y push; crear pull requests e issues; agregar etiquetas).
-- **Duración**: Este curso tendrá X pasos y lo podrás terminar en Y horas.
+- **Duración**: Este curso tendrá 5 pasos y lo podrás terminar en menos de 2 horas.
 
 ## ¿Cómo iniciar el curso?
 
 1. Haz click derecho en **Start course** y abre el enlace en una nueva pestaña.
-   <br />[![start-course](https://user-images.githubusercontent.com/1221423/218596841-0645fe1a-4aaf-4f51-9ab3-8aa2d3fdd487.svg)](TBD-generate)
+   <br />[![start-course](https://user-images.githubusercontent.com/1221423/218596841-0645fe1a-4aaf-4f51-9ab3-8aa2d3fdd487.svg)](https://github.com/platzi/curso-github-actions/generate)
 2. En la nueva pestaña, llena los campos para crear un nuevo repositorio.
    - En owner, elige tu cuenta personal o la de tu organización.
    - Es recomendado dejar el repositorio como público ya que los privados consumen [minutos que pueden ser cobrados](https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions).
@@ -161,6 +161,7 @@ Ahora que conoces los componentes básicos de un workflow en GitHub Actions pode
   Agregue el siguiente contenido al archivo `triggers.yml`:
   ```yaml
   name: Triggers
+  run-name: ¡Estoy aprendiendo a usar diferentes Triggers!
   on:
     push:
       branches:
@@ -251,6 +252,7 @@ Puedes combinar valores literales, referencias de contexto y funciones usando op
   Agregue el siguiente contenido al archivo `expresiones.yml`:
   ```yaml
   name: Expresiones
+  run-name: ¡Estoy aprendiendo a usar Expresiones!
   on:
     workflow_dispatch:
       inputs:
@@ -322,6 +324,7 @@ Los más usados son:
   Agregue el siguiente contenido al archivo `contextos.yml`:
   ```yaml
   name: Contexto
+  run-name: ¡Estoy aprendiendo a usar Contextos!
   on: push
   jobs:
     check-main:
@@ -364,6 +367,7 @@ El uso de variables de entorno es lo único que te falta por aprender de los pri
   Agregue el siguiente contenido al archivo `variables.yml`:
   ```yaml
   name: Saludo usando variables
+  run-name: ¡Estoy aprendiendo a usar Variables!
   on:
     workflow_dispatch
   env:
